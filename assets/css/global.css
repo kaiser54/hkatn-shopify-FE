@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --grey-grey-50: #656266;
+    --font-mid-2: #616161;
+    --grey-grey-200: #303030;
+    --grey-g-200: #303030;
+    --grey-g-100: #B5B5B5;
+    --grey-grey-300: #1A1A1A;
+    --color-scales-gray-16: #1A1A1A;
+    --font-light: #E3E3E3;
+    --font-mid-2: #616161;
+    --font-dark: #303030;
+    --stroke-s-50: #DBDBDB;
+    --stroke-s-200: #616161;
+    --stroke-s-100: #E1E1E1;
+    --font-mid-2: #616161;
+    --states-hover: #F1F1F1;
+    --states-pressed: #F0F0F0;
+    --states-focused: #005BD3;
+    --White: #FFF;
+    --Background: #F1F1F1;
+    --stroke-light-100: rgba(255, 255, 255, 0.20);
+}
+
+/* UTILITY CLASSES FOR BUTTONS PRIMARY SECONDARY AND GHOST */
+
+button {
+    background: transparent;
+    outline: transparent;
+    border: none;
+}
+
+.btn {
+    outline: 0;
+    border: 0;
+    background: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+
+
+    border-radius: 6px;
+
+    width: 100%;
+
+    outline: 0;
+    border: 0;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.primary-btn {
+    color: var(--font-light);
+    border-top: 1.5px solid var(--stroke-light-100);
+    border-right: 1.5px solid var(--stroke-light-100);
+    border-left: 1.5px solid var(--stroke-light-100);
+    background: #404040;
+    box-shadow: 0px 0px 0px 1.5px #333, 0px 1px 0px 1.5px #333, 0px 2px 0px 0px #000;
+}
+
+.btn.primary-btn:hover {
+    background: #2A2A2A;
+}
+
+.btn.primary-btn:active {
+    background: #2B2B2B;
+    box-shadow: 0px 0px 0px 1.5px #333, 0px 3px 0px 0px #000 inset;
+}
+
+
+.secondary-btn {
+    color: var(--font-dark);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: var(--White);
+    box-shadow: 0px -1px 0px 0px #B5B5B5 inset;
+}
+
+.btn.secondary-btn:hover {
+    background: #F7F7F7;
+}
+
+.btn.secondary-btn:active {
+    background: #F7F7F7;
+    box-shadow: 0px 2px 1.5px 0px #E2E2E2 inset;
+
+}
+
+.ghost-btn {
+    color: var(--font-dark);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.btn.ghost-btn:hover {
+    background: #E7E7E7;
+}
+
+.btn.ghost-btn:active {
+    background: #E0E0E0;
+
+}
+
+.btn:focus {
+    box-shadow: 0px 0px 0px 5px #005BD3, 0px 0px 0px 3px #FFF, 0px 0px 0px 1.5px #333;
+}
+
+/* TYPOGRAPHY UTILITY CLASSES  */
+
+.text-12 {
+    font-size: 12px;
+    font-style: normal;
+    line-height: 130%;
+    /* 15.6px */
+}
+
+.text-13 {
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    /* 18.2px */
+}
+
+.text-regular {
+    font-weight: 400;
+}
+
+.text-medium {
+    font-weight: 500;
+}
+
+.text-semi-bold {
+    font-weight: 600;
+}
+
+/* COLOR UTILITY CLASS */
+.bg-grey-grey-200 {
+    background: var(--grey-grey-200);
+
+}
+
+input,
+input::placeholder {
+    color: var(--grey-g-100, #B5B5B5);
+}
+
+
+.input-search {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    padding: 8px;
+    padding-left: 34px;
+    align-items: center;
+    gap: 6px;
+    outline: transparent;
+
+    border-radius: 8px;
+    border: 1px solid var(--stroke-s-200);
+    background: var(--grey-g-200);
+    transition: all 0.3s ease-in-out;
+}
+
+.input-search:hover {
+    border: 1px solid var(--stroke-s-100);
+}
+
+.input-search:active {
+    border: 1px solid var(--White);
+}
+
+.input-search:focus {
+    border: 1px solid var(--White);
+}
+
+.icon-btn {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-btn {
+    color: var(--font-light);
+    display: flex;
+    padding: 2px 2px 2px 8px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    
+    transition: all 0.3s ease-in-out;
+}
+
+.icon-btn:hover,
+.profile-btn:hover {
+    background: var(--font-mid-2);
+}
+
+.icon-btn:active,
+.profile-btn:active {
+    background: var(--grey-grey-50);
+}
+.icon-btn:focus,
+.profile-btn:focus {
+    background: var(--grey-grey-50);
+    box-shadow: 0px 0px 0px 3px #005BD3, 0px 0px 0px 1px #000;
+}
+
+.font-light {
+    color: var(--font-light);
+
+}
+
+.avatar {
+    color: rgba(0, 0, 0, 0.40);
+    text-align: center;
+    display: flex;
+    height: 28px;
+    padding: 9px 5px 10px 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background: #36FBA1;
+}
+.notify-profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav {
+    display: flex;
+    padding: 12px 16px;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--grey-grey-300);
+}
+
+.logo .icon {
+    display: none;
+}
+
+.input-group {
+    position: relative;
+    max-width: 465px;
+    width: 100%;
+}
+.search-svg {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 7px;
+    margin-left: 8px;
+}
+
+@media (max-width: 900px) {
+    .logo .large {
+        display: none;
+    }
+    .logo .icon {
+        display: block;
+    }
+    .profile-btn .name {
+        display: none;
+    }
+    .profile-btn.bg-grey-grey-200 {
+        background: none;
+        padding: 0;
+    }
+    .icon-btn.bg-grey-grey-200 {
+        background: none;
+    }
+}
