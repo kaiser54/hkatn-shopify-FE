@@ -465,4 +465,7 @@ a {
     .icon-btn.bg-grey-grey-200 {
         background: none;
     }
+    .profile_dropdown_container {
+        display: none;
+    }
 }
