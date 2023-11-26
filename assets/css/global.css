@@ -336,6 +336,7 @@ nav {
 
     /* Drop Shadow */
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+
     transform: scale(.4);
     transform-origin: 311px 0px;
     pointer-events: none;
@@ -444,14 +445,14 @@ a {
     display: flex;
     max-width: 800px;
     width: 100%;
-    margin-inline: auto ;
+    margin-inline: auto;
     padding: 12px 8px 12px 16px;
     justify-content: space-between;
     align-items: center;
 
     border-radius: 8px;
     background: var(--grey-grey-300);
-    
+
     height: auto;
     opacity: 1;
     transform: scale(1);
@@ -469,6 +470,39 @@ a {
     transform: scale(0);
     height: 0;
     opacity: 0;
+}
+
+.information .small {
+    display: none;
+}
+
+.notify {
+    padding: 16px;
+    gap: 16px;
+}
+
+.notify-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.notify-icons {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.notify-content {
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+
+    background: var(--states-hover);
+    
 }
 
 @media (max-width: 900px) {
@@ -491,5 +525,40 @@ a {
 
     .icon-btn.bg-grey-grey-200 {
         background: none;
+    }
+
+    .profile_dropdown_container {
+        /* max-width: 100%; */
+        width: calc(100% - 36px);
+    }
+
+    .information {
+        border-radius: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        position: relative;
+    }
+
+    .information .large {
+        display: none;
+    }
+
+    .information .small {
+        display: block;
+    }
+
+    .information .p-close {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .information .cta .large {
+        display: none;
+        position: absolute;
+        margin: 8px;
+        top: 12px;
+        right: 8px;
     }
 }

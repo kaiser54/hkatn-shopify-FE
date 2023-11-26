@@ -7,5 +7,7 @@ const toggleScreenElement = (content, button) => {
   });
 };
 
+toggleScreenElement("notifyDropdownContent", "notifyDropdownBtn"); // this alows me to togggle the store profile content
 toggleScreenElement("profileDropdownContent", "profileDropdownBtn"); // this alows me to togggle the store profile content
-toggleScreenElement("infoContent", "closeInfoBtn");
+toggleScreenElement("infoContent", "closeInfoBtn"); // this alows me to remove the select plan alert
+toggleScreenElement("infoContent", "closeInfoBtn2"); // this alows me to remove the select plan alert
