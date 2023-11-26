@@ -562,3 +562,9 @@ a {
         right: 8px;
     }
 }
+
+@media (max-width: 420px) {
+    .profile_dropdown_container {
+        max-width: 100%;
+    }
+}
