@@ -1,44 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,-25" />
-        <link rel="stylesheet" href="style.css">
+    <title>Accessible Dropdown</title>
+    <style>
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-button {
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .dropdown-content.show {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="dropdown" id="dropdown-content">
-            <button class="dropdown__button" id="dropdown">
-                <span class="material-symbols-outlined dropdown__icon"> person </span>
-                <span class="dropdown__name">My profile</span>
 
-                <div class="dropdown__icons">
-                    <span class="material-symbols-outlined dropdown__arrow"> expand_more </span>
-                    <span class="material-symbols-outlined dropdown__close"> close </span>
-                </div>
-            </button>
-
-            <ul class="dropdown__menu">
-                <li class="dropdown__item">
-                    <span class="material-symbols-outlined dropdown__icon"> chat </span>
-                    <span class="dropdown__name">Messages</span>
-                </li>
-                <li class="dropdown__item">
-                    <span class="material-symbols-outlined dropdown__icon"> lock </span>
-                    <span class="dropdown__name">Accounts</span>
-                </li>
-                <li class="dropdown__item">
-                    <span class="material-symbols-outlined dropdown__icon"> settings </span>
-                    <span class="dropdown__name">Settings</span>
-                </li>
-            </ul>
-        </div>
+<div class="dropdown-container">
+    <button class="dropdown-button" id="dropdownButton" aria-haspopup="true" aria-expanded="false">
+        Select an option
+    </button>
+    <div class="dropdown-content" aria-labelledby="dropdownButton">
+        <div class="dropdown-item">Option 1</div>
+        <div class="dropdown-item">Option 2</div>
+        <div class="dropdown-item">Option 3</div>
     </div>
-</body>
+</div>
 
+<!-- Modal content -->
+<div class="modal" id="myModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+        <button class="modal-close" id="modalCloseButton" aria-label="Close Modal">&times;</button>
+        <h2 id="modalTitle">Modal Title</h2>
+        <ul>
+            <li><a href="#" class="modal-list-item">Item 1</a></li>
+            <li><a href="#" class="modal-list-item">Item 2</a></li>
+            <li><a href="#" class="modal-list-item">Item 3</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        const modal = document.getElementById('myModal');
+        const modalCloseButton = document.getElementById('modalCloseButton');
+        const modalListItems = document.querySelectorAll('.modal-list-item');
+
+        // Function to open the modal
+        function openModal() {
+            modal.style.display = 'block';
+            modalListItems[0].focus();
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modal.style.display = 'none';
+            dropdownButton.focus();
+        }
+
+        dropdownButton.addEventListener('click', function () {
+            const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+
+            this.setAttribute('aria-expanded', !expanded);
+            dropdownContent.classList.toggle('show', !expanded);
+
+            if (!expanded) {
+                openModal();
+            }
+        });
+
+        modalCloseButton.addEventListener('click', closeModal);
+
+        // Close the modal when pressing the Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close the modal when clicking outside of it
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Trap focus within the modal when it's open
+        modal.addEventListener('keydown', function (event) {
+            const modalListItemsArray = Array.from(modalListItems);
+
+            if (event.key === 'Tab') {
+                if (event.shiftKey) {
+                    // Shift + Tab, move focus to the last item in the modal
+                    if (document.activeElement === modalListItemsArray[0]) {
+                        event.preventDefault();
+                        modalCloseButton.focus();
+                    }
+                } else {
+                    // Tab, move focus to the first item in the modal
+                    if (document.activeElement === modalCloseButton) {
+                        event.preventDefault();
+                        modalListItemsArray[0].focus();
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+</body>
 </html>

@@ -325,6 +325,7 @@ nav {
     display: flex;
     max-width: 320px;
     width: 100%;
+    height: 395px;
     padding: 6px 0;
     flex-direction: column;
     align-items: flex-start;
@@ -346,11 +347,20 @@ nav {
     z-index: 9999;
 }
 
+.profile_dropdown_container .pdc {
+    display: none;
+}
+
 .show_dropdown_content {
     opacity: 1;
     transform: scale(1);
     transform: none;
     pointer-events: visible;
+    height: auto;
+}
+
+.show_dropdown_content .pdc {
+    display: block;
 }
 
 .profile_dropdown_container_top {
@@ -568,3 +578,34 @@ a {
         max-width: 100%;
     }
 }
+
+
+
+
+  
+  .accordion {
+    width: 100%;
+  }
+  
+  .accordion-item {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .accordion-header {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .accordion-panel {
+    padding: 10px;
+    display: none;
+  }
+  
+  .accordion-panel.active {
+    display: block;
+  }
+  
